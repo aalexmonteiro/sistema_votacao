@@ -1,0 +1,20 @@
+namespace gov.tse.eleicao
+
+participant eleitor identified by eleitorID {
+  o String eleitorID
+  o String nome
+}
+
+asset seVotou identified by eleitorID {
+  o String eleitorID
+  o Boolean eleitorVotou
+}
+
+asset candidato identified by nome {
+  o String nome
+  o Integer votosTotais
+}
+transaction voto {
+  --> candidato candidatoAsset
+  --> seVotou seVotouAsset
+}
